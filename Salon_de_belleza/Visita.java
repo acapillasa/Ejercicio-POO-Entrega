@@ -6,15 +6,25 @@ public class Visita {
     private Cliente usuario;
     private Date fecha;
     private int impTotal;
+    private static int maxVisita;
 
     Visita(Cliente usuario, Date fecha) {
         this.usuario = usuario;
         this.fecha = fecha;
         impTotal = 0;
+        maxVisita++;
     }
 
     void cobrar(int dinero) {
         impTotal = dinero - dinero * (usuario.getDescuento()*100);
+    }
+
+    public Cliente getUsuario() {
+        return usuario;
+    }
+
+    public static int getMaxVisita() {
+        return maxVisita;
     }
 
     @Override

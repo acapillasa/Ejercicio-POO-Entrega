@@ -5,7 +5,7 @@ import java.util.Date;
 public class Visita {
     private Cliente usuario;
     private Date fecha;
-    private int impTotal;
+    private double impTotal;
     private static int maxVisita;
 
     Visita(Cliente usuario, Date fecha) {
@@ -16,7 +16,7 @@ public class Visita {
     }
 
     void cobrar(int dinero) {
-        impTotal = dinero - dinero * (usuario.getDescuento()*100);
+        impTotal = dinero - dinero * ((double)usuario.getDescuento()/100);
     }
 
     public Cliente getUsuario() {
